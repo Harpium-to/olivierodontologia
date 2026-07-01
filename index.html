@@ -90,15 +90,30 @@
   }
   .hero h1{font-size:clamp(2.5rem,7vw,4.4rem);font-weight:600;margin-bottom:20px;letter-spacing:-.01em;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.35)}
   .hero h1 em{font-style:italic;color:var(--gold-soft)}
-  .hero-sub{font-size:clamp(1.05rem,2.6vw,1.2rem);color:rgba(255,255,255,.88);max-width:560px;margin-bottom:34px;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+  .hero-sub{font-size:clamp(1.05rem,2.6vw,1.2rem);color:rgba(255,255,255,.88);max-width:560px;margin:0 auto 34px;text-shadow:0 1px 14px rgba(0,0,0,.4);line-height:1.5}
+  /* Mobile: dois parágrafos; Desktop: um só */
+  .hero-sub-desktop{display:none}
+  .hero-sub-mobile-1{margin-bottom:14px}
+  .hero-sub-mobile-2{margin-top:0;margin-bottom:34px}
+  @media(min-width:760px){
+    .hero-sub-desktop{display:block}
+    .hero-sub-mobile-1,.hero-sub-mobile-2{display:none}
+  }
 
   /* Carousel */
-  .carousel-block{padding:70px 0 80px;background:var(--bg-alt);overflow:hidden}
-  .carousel-block .section-eyebrow,.carousel-block .section-title{text-align:center}
-  .carousel-block .section-title{margin-left:auto;margin-right:auto;margin-bottom:34px}
-  .carousel-viewport{position:relative;margin:0 calc(50% - 50vw);padding:0 0 6px}
+  .carousel-block{padding:64px 0 60px;background:var(--bg-alt);overflow:hidden}
+  .carousel-block .section-eyebrow{margin-bottom:10px;text-align:center}
+  .carousel-block .section-title{
+    text-align:center;margin:0 auto 10px;
+    font-size:clamp(1.9rem,4.5vw,2.6rem);
+  }
+  .carousel-lead{
+    text-align:center;font-size:1rem;color:var(--gray-700);
+    max-width:420px;margin:0 auto 28px;line-height:1.5;
+  }
+  .carousel-viewport{position:relative;margin:0 calc(50% - 50vw);padding:0}
   .carousel-track{
-    display:flex;gap:16px;padding:6px 22px 20px;
+    display:flex;gap:14px;padding:6px 22px 22px;
     overflow-x:auto;scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;scrollbar-width:none;
     scroll-behavior:smooth;
@@ -107,14 +122,17 @@
   .carousel-card{
     flex:0 0 72%;max-width:280px;aspect-ratio:3/4;
     scroll-snap-align:center;border-radius:14px;overflow:hidden;
-    box-shadow:0 12px 28px rgba(31,107,76,.14);background:#ddd;
+    box-shadow:0 10px 24px rgba(31,107,76,.12);background:#ddd;
     position:relative;
   }
   .carousel-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
   .carousel-card:hover img{transform:scale(1.04)}
+  .carousel-cta{text-align:center;margin-top:20px}
   @media(min-width:760px){
-    .carousel-track{gap:22px;padding:6px 40px 24px}
+    .carousel-block{padding:80px 0 76px}
+    .carousel-track{gap:22px;padding:6px 40px 26px}
     .carousel-card{flex:0 0 300px;max-width:320px}
+    .carousel-cta{margin-top:28px}
   }
 
   /* Section base */
@@ -244,7 +262,9 @@
   <div class="wrap hero-inner">
     <span class="eyebrow">Dra. Aline · CRO 1779</span>
     <h1>Cuidar,<br>transformar e <em>sorrir</em>.</h1>
-    <p class="hero-sub">Odontologia conduzida pela Dra. Aline, com 17 anos de experiência. Atendimento próximo, honesto e transparente.</p>
+    <p class="hero-sub hero-sub-desktop">Odontologia conduzida pela Dra. Aline, com 17 anos de experiência. Atendimento próximo, honesto e transparente.</p>
+    <p class="hero-sub hero-sub-mobile-1">Odontologia conduzida pela Dra. Aline, com 17 anos de experiência.</p>
+    <p class="hero-sub hero-sub-mobile-2">Atendimento próximo, honesto<br>e transparente.</p>
     <div class="hero-cta-row">
       <a class="wa-btn" href="https://wa.me/5563984673975?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Olivier%20Odontologia%20e%20gostaria%20de%20agendar%20uma%20consulta.%20%F0%9F%98%8A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.215zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.078 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -259,7 +279,7 @@
   <div class="wrap">
     <div class="section-eyebrow">Nosso espaço</div>
     <h2 class="section-title">Conheça a clínica.</h2>
-    <p class="section-lead" style="text-align:center;margin:0 auto 6px">Um espaço pensado para o seu conforto.</p>
+    <p class="carousel-lead">Um espaço pensado para o seu conforto.</p>
   </div>
   <div class="carousel-viewport">
     <div class="carousel-track" id="carouselTrack">
@@ -271,13 +291,11 @@
       <div class="carousel-card"><img src="gallery-6.webp" alt="Espaço Olivier Odontologia" loading="lazy"></div>
     </div>
   </div>
-  <div class="wrap center">
-    <div class="sec-cta" style="margin-top:14px">
-      <a class="wa-btn" href="https://wa.me/5563984673975?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Olivier%20Odontologia%20e%20gostaria%20de%20agendar%20uma%20consulta.%20%F0%9F%98%8A" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.215zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.078 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        Agendar minha consulta
-      </a>
-    </div>
+  <div class="wrap carousel-cta">
+    <a class="wa-btn" href="https://wa.me/5563984673975?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Olivier%20Odontologia%20e%20gostaria%20de%20agendar%20uma%20consulta.%20%F0%9F%98%8A" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.215zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.078 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Agendar minha consulta
+    </a>
   </div>
 </section>
 
